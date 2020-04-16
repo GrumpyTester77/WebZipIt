@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Zip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Zip</h2>
+
+<p>
+    @ViewBag.Message
+</p>
+
+@using(Html.BeginForm("Index", "Zip", FormMethod.Post))
+ {   
+@:Enter path and filename of file to create: @Html.TextBox("txtImportPath")<br/>
+@:Enter the directory or file to import: @Html.TextBox("txtZipPath")<br />
+<input type="submit" value="Submit"/>
+
+Html.EndForm();
+  }

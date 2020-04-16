@@ -1,0 +1,38 @@
+﻿@model ZipIt.Unzip
+@{
+    ViewBag.Title = "Unzip";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Unzip</h2>
+
+<p>
+    @ViewBag.Message
+</p>
+
+@using (Html.BeginForm("Index", "Unzip")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Please enter the path and filename of the file you want to unzip: ")
+            @Html.TextBox("txtsourcePath")
+            @Html.ValidationMessage("Source path can not be empty")
+        </div>
+            <div class="form-group">
+                @Html.Label("Please enter the path where you want to unzip the files to: ")
+                @Html.TextBox("txtdestinationPath")
+                @Html.ValidationMessage("Destination path can not be empty")
+                </div>
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            
+    </div>
+}
+
+
